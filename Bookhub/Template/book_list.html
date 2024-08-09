@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Book List</title>
+</head>
+
+<body>
+    <h1>Book List</h1>
+    <form method="get">
+        <input type="text" name="q" placeholder="Search books..." value="{{ query }}">
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% for book in books %}
+        <li>
+            <img src="{{ book.cover_image }}" alt="{{ book.title }}">
+            <h2>{{ book.title }}</h2>
+            <p>by {{ book.author }}</p>
+            <p>{{ book.description }}</p>
+            <p>Rating: {{ book.average_rating }} ({{ book.ratings_count }} reviews)</p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
